@@ -6,8 +6,11 @@ import useWindowSize from "../../utils/hooks/useWindowSize";
 import Accordion from "../accordion";
 import AccordionDetails from "../accordion/accordion-details";
 import AccordionSummary from "../accordion/accordion-summary";
+import Image from "next/image";
 import CategoryLoader from "../loader/category";
 import { UpFooter } from "../UpFooter";
+import playMarketLogo from "../../public/assets/images/playMarketLogo.png";
+import appleLogo from "../../public/assets/images/appleStoreLogo.png";
 
 const Footer = () => {
   const { t: tl } = useTranslation();
@@ -35,65 +38,134 @@ const Footer = () => {
     )
   );
 
-  const makeColumns = (title, arrIn, newArrOut) => {
-    newArrOut.push(
-      <ul
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          background: "red",
-          height: 200,
-        }}
-      >
-        {arrIn.map((el) => (
-          <li>
-            <a href="/" target="_blank">
-              {el}
-            </a>
-          </li>
-        ))}
-      </ul>
-    );
+  const makeColumns = (num) => {
+    return new Array(num).fill("Lorem").map((el) => (
+      <li>
+        <a href="/" target="_blank">
+          {el}
+        </a>
+      </li>
+    ));
   };
 
-  const firstCol = makeColumns(
-    "Safin24",
-    [new Array(6).fill("Lorem")],
-   []
-  );
-  /*   const secondCol = makeColumns("About us", [new Array(4).fill("Lorem")]);
-  const thirdCol = makeColumns("Social Media", [new Array(5).fill("Lorem")]);
-  const fourCol = makeColumns("Lorem Ipsum", [new Array(4).fill("Lorem")]);
-  const fifthCol = makeColumns("Help", [new Array(8).fill("Lorem")]); */
+  const firstCol = makeColumns(6);
+  const secondCol = makeColumns(4);
+  const thirdCol = makeColumns(5);
+  const fourCol = makeColumns(4);
+  const fifthCol = makeColumns(8);
 
   return (
     <>
       <UpFooter />
       <div className="footer">
-        {windowSize.width > 768 ? (
-          <div className="footerCols">
-            {firstCol}
-            {/* {secondCol}
-            {thirdCol}
-            {fourCol}
-            {fifthCol} */}
+        <div className="upperFooter">
+          {windowSize.width > 768 ? (
+            <div className="footerCols">
+              <div>
+                <h1 className="title">Safin24</h1>
+                <ul
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    height: 200,
+                  }}
+                >    
+                  {firstCol}
+                </ul>
+              </div>
+              <div>
+                <h1 className="title">About us</h1>
+                <ul
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    height: 200,
+                  }}
+                >
+                  {secondCol}
+                </ul>
+              </div>
+              <div>
+                <h1 className="title">Social Media</h1>
+                <ul
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
 
-            {/* {new Array(12).fill("Lorem").map(el =>
-                <li>
-                <a href="/" target="_blank">
-                  {el}
-                </a>
-              </li>
-                )} */}
+                    height: 200,
+                  }}
+                >
+                  {thirdCol}
+                </ul>
+              </div>
+              <div>
+                <h1 className="title">Lorem Ipsum</h1>
+                <ul
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+
+                    height: 200,
+                  }}
+                >
+                  {fourCol}
+                </ul>
+              </div>
+              <div>
+                <h1 className="title">Help</h1>
+                <ul
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+
+                    height: 200,
+                  }}
+                >
+                  {fifthCol}
+                </ul>
+              </div>
+            </div>
+          ) : (
+            <Accordion id={""}>
+              <AccordionSummary>Lorem</AccordionSummary>
+              {accordion}
+            </Accordion>
+          )}
+        </div>
+        <div className="footerDown">
+          <div className="secOne">
+          <div className="store">
+            <Image
+              src={appleLogo}
+              alt="Picture of the author"
+              width={30}
+              height={30}
+            />
+
+            <p className="logoParagraphs">
+              Загрузите в <br />
+              <strong>App Store</strong>
+            </p>
           </div>
-        ) : (
-          <Accordion id={""}>
-            <AccordionSummary>Lorem</AccordionSummary>
-            {accordion}
-          </Accordion>
-        )}
+          <div className="store">
+            <Image
+              src={playMarketLogo}
+              alt="Picture of the author"
+              width={40}
+              height={30}
+            />
 
-        <footer>{settings["footer_text"]}</footer>
+            <p className="logoParagraphs">
+              Загрузите в <br />
+              <strong>Play Market</strong>
+            </p>
+          </div>
+          </div>
+          <div className="secTwo">
+          <div>© 2023 Eezy Inc. All rights reserved</div>
+          <div>| Terms of Use | Privacy and Policy</div>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -1,2 +1,0 @@
-# goshops
-# goshops-v1
