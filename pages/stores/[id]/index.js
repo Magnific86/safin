@@ -11,7 +11,7 @@ import DeliveryTime from "../../../components/stores/delivery-time";
 import StoreInfo from "../../../components/stores/store-info";
 import { BrandApi } from "../../../api/main/brand";
 import axiosService from "../../../services/axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Empty from "../../../components/empty-data";
 import { images } from "../../../constants/images";
 import { ProductApi } from "../../../api/main/product";
@@ -22,10 +22,8 @@ import MegaSale from "../../../components/banner/mega-sale";
 import LookCard from "../../../components/looks/card";
 import { BannerApi } from "../../../api/main/banner";
 import LookBanner from "../../../components/banner/look";
-import { getCategory } from "../../../redux/slices/category";
 
 const Store = ({ storeDetail }) => {
-  const dispatch = useDispatch();
   const [open, setOpen] = useState(null);
   const [content, setContent] = useState(null);
   const [brandList, setBrandList] = useState(null);
@@ -98,7 +96,6 @@ const Store = ({ storeDetail }) => {
     getMostSales();
     getNews();
     getBanner();
-    dispatch(getCategory({ shop_id: storeDetail?.id }));
   }, []);
   return (
     <>

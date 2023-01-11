@@ -7,12 +7,10 @@ import MedalFillIcon from "remixicon-react/MedalFillIcon";
 import Link from "next/link";
 import { imgBaseUrl } from "../../constants";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
-import { addToCurrentStore } from "../../redux/slices/savedStore";
 
 const StoresCard = ({ store, noLink = false, handleClick, id }) => {
   const { t: tl } = useTranslation();
-  const dispatch = useDispatch();
+
   const getRating = () => {
     if (store.rating_avg && store?.reviews_count) {
       return `${store.rating_avg} (${store?.reviews_count} ${tl("reviews")})`;
@@ -20,13 +18,10 @@ const StoresCard = ({ store, noLink = false, handleClick, id }) => {
       return `0.0 (0 ${tl("reviews")})`;
     }
   };
-  const setToCurrent = () => {
-    dispatch(addToCurrentStore(store));
-  };
   return (
     <>
       <Link href={`/stores/${store?.uuid}`}>
-        <div className="stores-card" onClick={setToCurrent}>
+        <div className="stores-card">
           <div className="top">
             <div className="logo-wrapper">
               <div className="logo">

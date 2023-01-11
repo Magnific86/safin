@@ -4,14 +4,16 @@ import { images } from "../../../constants/images";
 import SignInForm from "../../../components/auth/sign-in-form";
 import SocialAuth from "../../../components/auth/social";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 const SignIn = () => {
   const { t: tl } = useTranslation();
+  const settings = useSelector((state) => state.settings.data);
   return (
     <div className="container">
       <div className="auth-header">
         <Link href="/">
-          <a className="logo">GSHOP</a>
+          <a className="logo">{settings?.title}</a>
         </Link>
         <div className="auth-btn-side">
           <div className="label">{tl("Do not have an account?")}</div>

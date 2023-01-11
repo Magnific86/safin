@@ -27,14 +27,13 @@ const MyRazorpay = ({ order, setCheckoutContent, payment, setOrderId }) => {
         console.log(error);
       });
   };
-
   const handlePayment = useCallback(async (order) => {
     const { data } = await axios.post("/api/create-razorpay-session", {
       amount: order?.price,
     });
 
     const options = {
-      key: "rzp_test_TMPwvQpYGAIMbU",
+      key: payment?.client_id,
       amount: order?.price,
       currency: "INR",
       name: `${user?.firstname} ${user?.lastname}`,

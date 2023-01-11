@@ -1,19 +1,11 @@
-// ** Redux Imports
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-// ** Axios Imports
 import axiosService from "../../services/axios";
-
 export const getCategory = createAsyncThunk(
   "category/getCategory",
-  async (data) => {
-    const response = await axiosService.get(
-      "/api/v1/rest/categories/paginate",
-      { params: { shop_id: data.shop_id } }
-    );
+  async () => {
+    const response = await axiosService.get("/api/v1/rest/categories/paginate");
     return {
-      data: response.data,
-      totalPages: response.data.length,
+      data: response.data.data,
     };
   }
 );
@@ -27,7 +19,7 @@ export const categorySlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getCategory.fulfilled, (state, action) => {
-      state.categoryList = action.payload.data.data;
+      state.categoryList = action.payload.data;
       state.total = action.payload.totalPages;
     });
   },

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import { getYear, format } from "date-fns";
+import ru from "date-fns/locale/ru";
+import uz from "date-fns/locale/uz";
+import uzk from "date-fns/locale/uz-Cyrl";
+import en from "date-fns/locale/en-US";
+import { useRouter } from "next/router";
 import CalendarEventLineIcon from "remixicon-react/CalendarEventLineIcon";
 import { useTranslation } from "react-i18next";
-import { parseCookies } from "nookies";
 
 export default function DateRangePopover({
   onChange,
@@ -19,8 +23,10 @@ export default function DateRangePopover({
   const year = getYear(data);
   const month = data.getMonth();
   const day = data.getDate() + extraDay;
+  const { locale } = useRouter();
   const [selected, setSelected] = useState(value);
   const [datepicker, showDatepicker] = useState(false);
+
   const hanleClick = (e) => {
     if (e) {
       setSelected(e);
@@ -53,6 +59,15 @@ export default function DateRangePopover({
         mode="single"
         selected={selected}
         onSelect={hanleClick}
+        locale={
+          locale === "uz"
+            ? uz
+            : locale === "ru"
+            ? ru
+            : locale === "uzk"
+            ? uzk
+            : en
+        }
         showOutsideDays
       />
     </div>

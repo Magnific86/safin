@@ -427,6 +427,7 @@
                         transition: all ease 200ms;
 
                         &:hover {
+                            color: #000;
                             padding-left: 5px;
                         }
                     }
@@ -443,6 +444,7 @@
                             transition: all ease 200ms;
 
                             &:hover {
+                                color: var(--black-06);
                                 padding-left: 5px;
                             }
 

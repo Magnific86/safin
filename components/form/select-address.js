@@ -22,19 +22,6 @@ const SelectAddress = ({ setOpen = () => {} }) => {
       item.location.latitude === newUserLocation[0] ||
       item.location.longitude === newUserLocation[1]
   );
-  useEffect(() => {
-    if (address.length === 0 && cookies.access_token) {
-      getUser();
-    }
-  }, []);
-
-  useEffect(() => {
-    if (address.length !== 0) {
-      setUserDefaultLocation(address[0].location);
-    } else {
-      getAddressObj();
-    }
-  }, [address]);
 
   const click = () => {
     setDrawerTitle("Enter a delivery address");
@@ -56,10 +43,16 @@ const SelectAddress = ({ setOpen = () => {} }) => {
         setAddress: setDefaultAddress,
       });
     }
-
     return defaultAddress;
   };
-
+  useEffect(() => {
+    if (address.length === 0 && cookies.access_token) {
+      getUser();
+    }
+  }, []);
+  useEffect(() => {
+    if (address.length === 0) getAddressObj();
+  }, [address]);
   return (
     <div
       className={

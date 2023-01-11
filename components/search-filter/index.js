@@ -67,7 +67,7 @@ const SerachFilter = ({ className }) => {
         }
       >
         <div className="search-input-wrapper">
-          {router?.query?.id && <Category />}
+         {/*  <Category /> */}
           {router.pathname === "/products/[id]" && (
             <Link href={`/stores/${shop.uuid}`}>
               <a className="current-store">
@@ -114,11 +114,47 @@ const SerachFilter = ({ className }) => {
           </div>
         </div>
         <div className="filter-links">
-         
         </div>
       </div>
     </>
   );
 };
-
+const getButton = (tl, router) => {
+  const pathname = router.pathname;
+  if (pathname === "/") {
+    return (
+      <Link href="/view-in-map">
+        <a className="btn-view">
+          <MapPinLineIcon size={20} />
+          <span>{tl("View in map")}</span>
+        </a>
+      </Link>
+    );
+  } else if (pathname === "/view-in-map") {
+    return (
+      <Link href="/">
+        <a className="btn-view">
+          <FileListFillIcon size={20} />
+          <span>{tl("View in List")}</span>
+        </a>
+      </Link>
+    );
+  } else if (pathname === "/stores/[id]") {
+    return (
+      <Link href="/">
+        <a className="btn-view bg-white">
+          <Store3FillIcon size={20} />
+          <span>{tl("Back all store")}</span>
+        </a>
+      </Link>
+    );
+  } else {
+    return (
+      <div onClick={() => router.back()} className="btn-view bg-white">
+        <ArrowLeftSLineIcon size={20} />
+        <span>{tl("Back")}</span>
+      </div>
+    );
+  }
+};
 export default SerachFilter;

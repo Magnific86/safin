@@ -1,6 +1,4 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { parseCookies } from "nookies";
-import { useDispatch } from "react-redux";
 import { TransactionsApi } from "../../../api/main/transactions";
 import { clearCart, clearOrderShops } from "../../../redux/slices/cart";
 import { clearOrder } from "../../../redux/slices/order";
@@ -11,15 +9,12 @@ function PayPal({
   setCheckoutContent,
   closeDrawer,
 }) {
-  const cookies = parseCookies();
-  const dispatch = useDispatch();
-
+  const dispatch = useDipsatch();
   if (!createdOrderData?.price) return "";
   return (
     <PayPalScriptProvider
       options={{
-        "client-id":
-          "ATDP-sRgmqduMDVjO7T3pbn2milfHAzcClXfZY5DAt9WT-n8Fma33bQU--H0Qf6aMZDrfzKpS79GmQvm",
+        "client-id": payment?.client_id,
         currency: "USD",
       }}
     >

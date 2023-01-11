@@ -18,7 +18,7 @@ const Ordered = ({ orderedProduct }) => {
               {orderedProduct.extras?.map((item, key) => {
                 return (
                   <div key={key}>
-                    {item?.group?.type === "text" && (
+                    {item.group.type === "text" && (
                       <div className="size">{`${item.group.translation?.title} ${item.value}`}</div>
                     )}
                   </div>
@@ -27,7 +27,7 @@ const Ordered = ({ orderedProduct }) => {
               {orderedProduct.extras?.map((item, key) => {
                 return (
                   <div key={key}>
-                    {item?.group?.type === "color" && (
+                    {item.group.type === "color" && (
                       <div className="color">
                         {`${tl("Color")}: ${GetColorName(item.value)}`}
                       </div>

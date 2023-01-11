@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import Confirm from "../../components/forget-password/confirm-otp";
 import EnterPhone from "../../components/forget-password/enter-phone";
@@ -11,6 +12,7 @@ import serviceWithOutToken from "../../services/auth";
 
 const ForgetPassword = () => {
   const { t: tl } = useTranslation();
+  const settings = useSelector((state) => state.settings.data);
   const [formStep, setFormStep] = useState("enter-phone");
   const [phone, setPhone] = useState(true);
   const [loader, setLoader] = useState(false);
@@ -37,7 +39,7 @@ const ForgetPassword = () => {
     <div className="container">
       <div className="auth-header">
         <Link href="/">
-          <a className="logo">GSHOP</a>
+          <a className="logo">{settings?.title}</a>
         </Link>
         <div className="auth-btn-side">
           <div className="label">{tl("Do not have an account?")}</div>

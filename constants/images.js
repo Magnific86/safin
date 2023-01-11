@@ -25,6 +25,8 @@ export const images = {
   Become: "/assets/images/become-seller.png",
   Cashback: "/assets/images/cashback.png",
   MultiDelivery: "/assets/images/multi-delivery.png",
+  BeSeller1: "/assets/images/be-seller-banner.png",
+  InfiniteLine: "/assets/images/infinite-line.png",
 };
 
 export const DiscountIcon = () => {

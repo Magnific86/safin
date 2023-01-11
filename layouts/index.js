@@ -4,18 +4,14 @@ import CustomDrawer from "../components/drawer";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import OrderList from "../components/order/list";
-import SerachFilter from "../components/search-filter";
 import AddWallet from "../components/wallet/add";
 import WalletHistory from "../components/wallet/history";
 import TransferWallet from "../components/wallet/transfer";
 import { MainContext } from "../utils/contexts/MainContext";
-import { useRouter } from "next/router";
 import LookDetail from "../components/looks/detail";
 const Layout = ({ children }) => {
   const { isOpen, setIsOpen, open, setOpen, content, setContent } =
     useContext(MainContext);
-
-  const router = useRouter();
   const handleContent = (key) => {
     setContent(key);
     setOpen(true);

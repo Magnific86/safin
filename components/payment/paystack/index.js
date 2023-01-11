@@ -50,7 +50,7 @@ function Paystack({
     reference: new Date().getTime().toString(),
     email: user.email,
     amount: parseFloat(createdOrderData?.price?.toFixed(2)) * 100,
-    publicKey: "pk_test_2ec2bc5ed445385489385b2fce6cddfbfb265914",
+    publicKey: payment?.client_id,
     currency: "ZAR",
     order_id: createdOrderData?.id,
   };

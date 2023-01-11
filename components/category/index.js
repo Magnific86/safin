@@ -1,13 +1,12 @@
 import React from "react";
 import { useContext } from "react";
+import { MainContext } from "../../utils/contexts/MainContext";
 import OutsideAlerter from "../../utils/hooks/useClickOutside";
 import useWindowSize from "../../utils/hooks/useWindowSize";
-import LayoutGridLineIcon from "remixicon-react/LayoutGridLineIcon";
-import { useTranslation } from "react-i18next";
-import { MainContext } from "../../utils/contexts/MainContext";
 import LaptopCategory from "../search-filter/vertical/helper/laptop-category";
 import MobileCategory from "../search-filter/vertical/helper/mobile-category";
-
+import LayoutGridLineIcon from "remixicon-react/LayoutGridLineIcon";
+import { useTranslation } from "react-i18next";
 const Category = () => {
   const { t: tl } = useTranslation();
   const windowSize = useWindowSize();

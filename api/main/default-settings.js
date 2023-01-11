@@ -9,13 +9,13 @@ export const getCurrency = (array = () => {}) => {
   serviceWithOutToken
     .get("/api/v1/rest/currencies/active")
     .then((res) => {
+      array(res.data.data);
       const defaultCurrency = res.data.data.find(
         (item) => item.default === true
       );
       if (!currency_id) {
         setCurrency(defaultCurrency);
       }
-      array(res.data.data);
     })
     .catch((error) => {
       console.log(error);
@@ -28,11 +28,11 @@ export const getLanguage = (array = () => {}) => {
   serviceWithOutToken
     .get("/api/v1/rest/languages/active")
     .then((res) => {
+      array(res.data.data);
       const defaultLanguage = res.data.data.find((item) => item.default === 1);
       if (!language_id) {
         setLanguage(defaultLanguage);
       }
-      array(res.data.data);
     })
     .catch((error) => {
       console.log(error);

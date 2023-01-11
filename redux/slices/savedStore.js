@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   savedStoreList: [],
-  currentStore: {},
 };
 
 const savedStoreSlice = createSlice({
@@ -11,9 +10,6 @@ const savedStoreSlice = createSlice({
   reducers: {
     addToSaved(store, action) {
       store.savedStoreList.push({ ...action.payload });
-    },
-    addToCurrentStore(store, action) {
-      store.currentStore = action.payload;
     },
     removeFromSaved(state, action) {
       state.savedStoreList.map((storeItem) => {
@@ -41,7 +37,6 @@ export const {
   removeFromSaved,
   clearSavedStore,
   updateSavedStore,
-  addToCurrentStore,
 } = savedStoreSlice.actions;
 
 export default savedStoreSlice.reducer;

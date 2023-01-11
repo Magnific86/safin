@@ -49,7 +49,7 @@ const TopSales = ({ mostSold, setLoader }) => {
       <div className="all-products">
         <ProductSection
           brandList={brandList}
-          filter={true}
+          filter={false}
           title="Top sales"
           sort={true}
           total={salesList?.length}

@@ -13,9 +13,11 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { MainContext } from "../../../utils/contexts/MainContext";
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 const SignUp = () => {
   const { t: tl } = useTranslation();
   const router = useRouter();
+  const settings = useSelector((state) => state.settings.data);
   const [formKey, setFormKey] = useState("phone");
   const [verifyPhone, setVerifyPhone] = useState({});
   const [isTimeOver, setIsTimeOver] = useState(null);
@@ -84,7 +86,7 @@ const SignUp = () => {
     <div className="container">
       <div className="auth-header">
         <Link href="/">
-          <a className="logo">GSHOP</a>
+          <a className="logo">{settings?.title}</a>
         </Link>
         <div className="auth-btn-side">
           <div className="label">{tl("Have an account")}</div>

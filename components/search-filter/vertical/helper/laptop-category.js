@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
 import { useSelector } from "react-redux";
-import ArrowRightSLineIcon from "remixicon-react/ArrowRightSLineIcon";
 import { MainContext } from "../../../../utils/contexts/MainContext";
+import ArrowRightSLineIcon from "remixicon-react/ArrowRightSLineIcon";
 const LaptopCategory = () => {
   const router = useRouter();
   const [currentId, setCurrentId] = useState(0);

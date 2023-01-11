@@ -18,6 +18,7 @@ import { serviceWithOutToken } from "../../services/auth";
 import { getSettings } from "../../redux/slices/settings";
 import { ShopApi } from "../../api/main/shops";
 import { updateSavedStore } from "../../redux/slices/savedStore";
+import { getCategory } from "../../redux/slices/category";
 const MainContextProvider = ({ children }) => {
   const dispatch = useDispatch();
   const productViewedIds = useSelector(
@@ -144,6 +145,7 @@ const MainContextProvider = ({ children }) => {
     if (!checked_viewed && productViewedIds.length) checkViewedProduct();
     if (!chacked_store && shopIds.length) checkShop();
     dispatch(getSettings());
+    dispatch(getCategory());
   }, []);
 
   useEffect(() => {

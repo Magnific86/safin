@@ -6,14 +6,15 @@ import useWindowSize from "../../utils/hooks/useWindowSize";
 import Accordion from "../accordion";
 import AccordionDetails from "../accordion/accordion-details";
 import AccordionSummary from "../accordion/accordion-summary";
-import Image from "next/image";
 import CategoryLoader from "../loader/category";
-import { UpFooter } from "../UpFooter";
-import playMarketLogo from "../../public/assets/images/playMarketLogo.png";
-import appleLogo from "../../public/assets/images/appleStoreLogo.png";
+import { UpFooter } from "./UpFooter";
+import playMarketLogo from "../../public/assets/icons/playMarketLogo.png";
+import appleLogo from "../../public/assets/icons/appleStoreLogo.png";
+import Image from "next/image";
 
 const Footer = () => {
   const { t: tl } = useTranslation();
+  const windowSize = useWindowSize();
   const settings = useSelector((state) => state.settings.data);
   const [idList, setIdList] = useState([]);
   const handleClick = (key) => {
@@ -24,7 +25,6 @@ const Footer = () => {
       setIdList([...idList, key]);
     }
   };
-  const windowSize = useWindowSize();
 
   const accordion = [];
 
@@ -69,7 +69,7 @@ const Footer = () => {
                     flexDirection: "column",
                     height: 200,
                   }}
-                >    
+                >
                   {firstCol}
                 </ul>
               </div>
@@ -134,36 +134,36 @@ const Footer = () => {
         </div>
         <div className="footerDown">
           <div className="secOne">
-          <div className="store">
-            <Image
-              src={appleLogo}
-              alt="Picture of the author"
-              width={30}
-              height={30}
-            />
+            <div className="store">
+              <Image
+                src={appleLogo}
+                alt="Picture of the author"
+                width={30}
+                height={30}
+              />
 
-            <p className="logoParagraphs">
-              Загрузите в <br />
-              <strong>App Store</strong>
-            </p>
-          </div>
-          <div className="store">
-            <Image
-              src={playMarketLogo}
-              alt="Picture of the author"
-              width={40}
-              height={30}
-            />
+              <p className="logoParagraphs">
+                Загрузите в <br />
+                <strong>App Store</strong>
+              </p>
+            </div>
+            <div className="store">
+              <Image
+                src={playMarketLogo}
+                alt="Picture of the author"
+                width={40}
+                height={30}
+              />
 
-            <p className="logoParagraphs">
-              Загрузите в <br />
-              <strong>Play Market</strong>
-            </p>
-          </div>
+              <p className="logoParagraphs">
+                Загрузите в <br />
+                <strong>Play Market</strong>
+              </p>
+            </div>
           </div>
           <div className="secTwo">
-          <div>© 2023 Eezy Inc. All rights reserved</div>
-          <div>| Terms of Use | Privacy and Policy</div>
+            <div>© 2023 Eezy Inc. All rights reserved</div>
+            <div>| Terms of Use | Privacy and Policy</div>
           </div>
         </div>
       </div>

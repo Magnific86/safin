@@ -67,7 +67,7 @@ const OrderList = ({ setOpen }) => {
         let quantities = [];
         showProduct.flat().forEach((item) => {
           const product = data.find((el) => el.id === item.product_id);
-          const stock = product.stocks.find((el) => el.id === item.id);
+          const stock = product?.stocks.find((el) => el.id === item.id);
           if (!stock) {
             dispatch(removeFromCart(item));
             dispatch(getTotals());

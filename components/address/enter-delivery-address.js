@@ -13,7 +13,7 @@ const EnterAddress = ({
   setIsOpen,
   setOpen = () => {},
   editAddress,
-  setEditAddress,
+  setEditAddress = () => {},
 }) => {
   const [title, setTitle] = useState(null);
   const [value, setValue] = useState("");

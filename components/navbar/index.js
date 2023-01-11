@@ -22,6 +22,7 @@ import { useRouter } from "next/router";
 
 const Navbar = ({ handleContent }) => {
   const { t: tl } = useTranslation();
+  const router = useRouter()
   const cookies = parseCookies();
   const [open, setOpen] = useState(null);
   const user = useSelector((state) => state.user.data);
@@ -36,7 +37,6 @@ const Navbar = ({ handleContent }) => {
   const isEmpty = Object.keys(user ? user : {}).length === 0;
   const cartTotalAmount = useSelector((state) => state.cart.cartTotalAmount);
   const windowSize = useWindowSize();
-  const router = useRouter()
   const click = (key) => {
     setDrawerTitle("My order");
     handleContent(key);
@@ -46,24 +46,19 @@ const Navbar = ({ handleContent }) => {
     return readed;
   };
 
-  const categoriesList = new Array(15).fill("Lorem").map(el =>
-    <li>{el}</li>
-    )
-
   return (
     <>
       <div className="navbar">
         <div className="left">
-          {/* <div className="burger-btn" onClick={() => setOpen(true)}>
+          <div className="burger-btn" onClick={() => setOpen(true)}>
             <span></span>
             <span></span>
-          </div> */}
+          </div>
           <Link href="/">
             <a className="logo">
-              Safin24
+              {settings?.title ? settings?.title : "Site title"}
             </a>
           </Link>
-          {/* <SelectAddress /> */}
           <SerachFilter
           className={router.pathname === "/products/[id]" ? "inner-store" : ""}
         />
@@ -73,33 +68,33 @@ const Navbar = ({ handleContent }) => {
             <Link href="/auth/sign-in">
               <a className="login-btn">
                 <LoginCircleLineIcon size={20} />
-                <span>{tl("Sign Up")}</span>
+                <span>{tl("Login")}</span>
               </a>
             </Link>
           )}
-          {/* {!user?.wallet && (
+          {user?.wallet && (
             <div className="wallet">
               <Wallet3LineIcon size={20} />
               <div className="amount">{getPrice(user?.wallet?.price)}</div>
             </div>
-          )} */}
-          <Link href="/stores/liked-product">
-            <a className="square liked" style={{display: 'flex', alignItems: 'center'}}>
-              <HeartLineIcon size={20} /> <span>{tl("Favorite")}</span>
-            </a>
-          </Link>
+          )}
           <div className="cart-amount" onClick={() => click("order-list")}>
             <ShoppingCartLineIcon size={20} />
             <span>
-            <span>{tl("Basket")}</span>
+              <div className="amount">{getPrice(cartTotalAmount)}</div>
             </span>
           </div>
-          {/* <Link href="/saved-store">
+         {/*  <Link href="/saved-store">
             <a className="square saved">
               <Bookmark3LineIcon size={20} />
             </a>
           </Link> */}
-          
+          <Link href="/stores/liked-product">
+            <a className="square liked">
+              <HeartLineIcon size={20} />
+              <span>{tl("Favotite")}</span>
+            </a>
+          </Link>
          {/*  <div className="square notification-wrapper">
             <Notification4LineIcon size={20} />
             <div className="notification">
@@ -137,7 +132,7 @@ const Navbar = ({ handleContent }) => {
               })}
             </div>
           </div> */}
-         {/*  <UserAvatar /> */}
+          <UserAvatar />
         </div>
       </div>
       <CustomDrawer
@@ -152,8 +147,10 @@ const Navbar = ({ handleContent }) => {
         {windowSize?.width < 769 && <MobileNav setOpen={setOpen} />}
       </CustomDrawer>
       <div className="categoriesList">
-          {categoriesList}
-      </div>
+      {new Array(12).fill("Lorem").map((item, index) => (
+        <p key={index}>{item}</p>
+      ))}
+    </div>
     </>
   );
 };
