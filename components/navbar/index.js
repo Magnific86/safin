@@ -84,10 +84,10 @@ const Navbar = ({ handleContent }) => {
             </a>
           </Link>
           {user?.wallet && (
-            <div className="wallet">
+            <a className="wallet">
               <Wallet3LineIcon size={20} />
-              <div className="amount">{tl("Basket")}</div>
-            </div>
+              <span className="amount">{tl("Basket")}</span>
+            </a>
           )}
           <div className="cart-amount" onClick={() => click("order-list")}>
             <ShoppingCartLineIcon size={20} />

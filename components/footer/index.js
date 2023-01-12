@@ -28,10 +28,10 @@ const Footer = () => {
 
   const accordion = [];
 
-  new Array(6).fill("Lorem ipsum").forEach((el) =>
+  new Array(6).fill("Lorem ipsum").forEach((el, index) =>
     accordion.push(
       <AccordionDetails>
-        <a href={settings[""]} target="_blank">
+        <a key={index} href={settings[""]} target="_blank">
           {el}
         </a>
       </AccordionDetails>
@@ -39,8 +39,8 @@ const Footer = () => {
   );
 
   const makeColumns = (num) => {
-    return new Array(num).fill("Lorem").map((el) => (
-      <li>
+    return new Array(num).fill("Lorem").map((el, index) => (
+      <li key={index}>
         <a href="/" target="_blank">
           {el}
         </a>
