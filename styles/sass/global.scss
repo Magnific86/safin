@@ -6,16 +6,17 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 body {
   background: var(--primary-bg);
-  font-family: 'Inter', sans-serif;
+  background-color: #C7C7C7;
+  font-family: "Petrona";
 
-  &::-webkit-scrollbar {
+/*   &::-webkit-scrollbar {
     display: none;
-  }
+  } */
 }
 
 ul li {

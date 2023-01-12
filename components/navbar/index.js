@@ -19,6 +19,10 @@ import { getPrice } from "../../utils/getPrice";
 import { parseCookies } from "nookies";
 import SerachFilter from "../search-filter";
 import { useRouter } from "next/router";
+import { MenuList } from "./menuList/MenuList";
+import { MenuHover } from "./menuList/menuHover";
+import { BrandList } from "./BrandList";
+
 
 const Navbar = ({ handleContent }) => {
   const { t: tl } = useTranslation();
@@ -56,7 +60,8 @@ const Navbar = ({ handleContent }) => {
           </div>
           <Link href="/">
             <a className="logo">
-              {settings?.title ? settings?.title : "Site title"}
+             {/*  {settings?.title ? settings?.title : "Site title"} */}
+             Safin24
             </a>
           </Link>
           <SerachFilter
@@ -72,16 +77,22 @@ const Navbar = ({ handleContent }) => {
               </a>
             </Link>
           )}
+           <Link href="/stores/liked-product">
+            <a className="square">
+              <HeartLineIcon size={20} />
+              <span>{tl("Favorite")}</span>
+            </a>
+          </Link>
           {user?.wallet && (
             <div className="wallet">
               <Wallet3LineIcon size={20} />
-              <div className="amount">{getPrice(user?.wallet?.price)}</div>
+              <div className="amount">{tl("Basket")}</div>
             </div>
           )}
           <div className="cart-amount" onClick={() => click("order-list")}>
             <ShoppingCartLineIcon size={20} />
             <span>
-              <div className="amount">{getPrice(cartTotalAmount)}</div>
+              {tl("Basket")}
             </span>
           </div>
          {/*  <Link href="/saved-store">
@@ -89,12 +100,6 @@ const Navbar = ({ handleContent }) => {
               <Bookmark3LineIcon size={20} />
             </a>
           </Link> */}
-          <Link href="/stores/liked-product">
-            <a className="square liked">
-              <HeartLineIcon size={20} />
-              <span>{tl("Favotite")}</span>
-            </a>
-          </Link>
          {/*  <div className="square notification-wrapper">
             <Notification4LineIcon size={20} />
             <div className="notification">
@@ -146,11 +151,8 @@ const Navbar = ({ handleContent }) => {
         <Sidebar setOpen={setOpen} />
         {windowSize?.width < 769 && <MobileNav setOpen={setOpen} />}
       </CustomDrawer>
-      <div className="categoriesList">
-      {new Array(12).fill("Lorem").map((item, index) => (
-        <p key={index}>{item}</p>
-      ))}
-    </div>
+      <MenuList />
+      <BrandList />
     </>
   );
 };

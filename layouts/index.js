@@ -9,6 +9,7 @@ import WalletHistory from "../components/wallet/history";
 import TransferWallet from "../components/wallet/transfer";
 import { MainContext } from "../utils/contexts/MainContext";
 import LookDetail from "../components/looks/detail";
+import { BrandList } from "../components/navbar/BrandList";
 const Layout = ({ children }) => {
   const { isOpen, setIsOpen, open, setOpen, content, setContent } =
     useContext(MainContext);

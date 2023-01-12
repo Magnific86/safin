@@ -17,6 +17,7 @@ import { useTranslation } from "react-i18next";
 import FlashlightFillIcon from "remixicon-react/FlashlightFillIcon";
 import { ArrowRigthIcon, CheeseLineIcon } from "../../constants/images";
 import Category from "../category";
+import SelectAddress from "../form/select-address";
 const SerachFilter = ({ className }) => {
   const { t: tl } = useTranslation();
   const router = useRouter();
@@ -89,6 +90,7 @@ const SerachFilter = ({ className }) => {
               onFocus={() => handleClick("search")}
               placeholder={tl("Search products")}
             />
+            
             {searchResult?.data && (
               <div className="search-result-count">
                 {searchResult?.data?.length}
@@ -115,6 +117,7 @@ const SerachFilter = ({ className }) => {
         </div>
         <div className="filter-links">
         </div>
+        <SelectAddress />
       </div>
     </>
   );
