@@ -56,8 +56,8 @@ const Footer = () => {
 
   return (
     <>
-      <UpFooter />
       <div className="footer">
+        <UpFooter />
         <div className="upperFooter">
           {windowSize.width > 768 ? (
             <div className="footerCols">
@@ -142,10 +142,14 @@ const Footer = () => {
                 height={30}
               />
 
-              <p className="logoParagraphs">
+              <a
+                href="https://www.apple.com/ru/app-store/"
+                target="_blank"
+                className="hrefPlayMarketAppStore"
+              >
                 Загрузите в <br />
                 <strong>App Store</strong>
-              </p>
+              </a>
             </div>
             <div className="store">
               <Image
@@ -155,10 +159,14 @@ const Footer = () => {
                 height={30}
               />
 
-              <p className="logoParagraphs">
+              <a
+                href="https://play.google.com/store/games?hl=ru&gl=US&pli=1"
+                target="_blank"
+                className="hrefPlayMarketAppStore"
+              >
                 Загрузите в <br />
                 <strong>Play Market</strong>
-              </p>
+              </a>
             </div>
           </div>
           <div className="secTwo">

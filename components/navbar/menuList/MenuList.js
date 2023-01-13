@@ -34,8 +34,10 @@ export const MenuList = () => {
     inView ? (prev.style = "opacity:0") : (prev.style = "opacity:1");
   }, [inView]);
 
+
+
   return (
-    <>
+    <div className="menuListWrapper">
       <div className="menuListContainer">
         <div className="categoriesList">
           <Swiper
@@ -53,11 +55,14 @@ export const MenuList = () => {
                 onMouseOver={() => setDisplay("grid")}
                 onClick={() => setNum(index)}
               >
-                <p ref={index === 0 ? ref : null}>{item}</p>
+                <p className="after" ref={index === 0 ? ref : null}>
+                  {item}
+                </p>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
+
         <div className="sideBtns">
           <Link href="/stores/often-buy">
             <div className="btn sideBtn link">
@@ -80,7 +85,15 @@ export const MenuList = () => {
           </Link>
         </div>
       </div>
-    </>
+      <div
+        onMouseOver={() => setDisplay("grid")}
+        onMouseLeave={() => setDisplay("none")}
+        className="menuHover"
+        style={{ display: `${display}` }}
+      >
+        {allArr}
+      </div>
+    </div>
   );
 };
 
@@ -95,9 +108,3 @@ export const MenuList = () => {
               display: block
             }
           } */
-
-{
-  /* <div className="menuHover" style={{ display: `${display}` }}>
-        {allArr}
-      </div> */
-}

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import LoginCircleLineIcon from "remixicon-react/LoginCircleLineIcon";
 import Wallet3LineIcon from "remixicon-react/Wallet3LineIcon";
 import Bookmark3LineIcon from "remixicon-react/Bookmark3LineIcon";
@@ -23,10 +23,10 @@ import { MenuList } from "./menuList/MenuList";
 import { MenuHover } from "./menuList/menuHover";
 import { BrandList } from "./BrandList";
 
-
 const Navbar = ({ handleContent }) => {
   const { t: tl } = useTranslation();
-  const router = useRouter()
+  const router = useRouter();
+  const [mobileWidth, setMobileWidth] = useState(false)
   const cookies = parseCookies();
   const [open, setOpen] = useState(null);
   const user = useSelector((state) => state.user.data);
@@ -50,23 +50,29 @@ const Navbar = ({ handleContent }) => {
     return readed;
   };
 
+  useEffect(() => {
+    document.body.clientWidth < 1200 ? setMobileWidth(true) : setMobileWidth(false)
+  }, [ document.body.clientWidth])
+
   return (
     <>
       <div className="navbar">
         <div className="left">
-          <div className="burger-btn" onClick={() => setOpen(true)}>
+         {mobileWidth &&  <div className="burger-btn" onClick={() => setOpen(true)}>
             <span></span>
             <span></span>
-          </div>
+          </div>}
           <Link href="/">
             <a className="logo">
-             {/*  {settings?.title ? settings?.title : "Site title"} */}
-             Safin24
+              {/*  {settings?.title ? settings?.title : "Site title"} */}
+              Safin24
             </a>
           </Link>
           <SerachFilter
-          className={router.pathname === "/products/[id]" ? "inner-store" : ""}
-        />
+            className={
+              router.pathname === "/products/[id]" ? "inner-store" : ""
+            }
+          />
         </div>
         <div className="right">
           {(isEmpty || !cookies?.access_token) && (
@@ -77,7 +83,7 @@ const Navbar = ({ handleContent }) => {
               </a>
             </Link>
           )}
-           <Link href="/stores/liked-product">
+          <Link href="/stores/liked-product">
             <a className="square">
               <HeartLineIcon size={20} />
               <span>{tl("Favorite")}</span>
@@ -91,16 +97,14 @@ const Navbar = ({ handleContent }) => {
           )}
           <div className="cart-amount" onClick={() => click("order-list")}>
             <ShoppingCartLineIcon size={20} />
-            <span>
-              {tl("Basket")}
-            </span>
+            <span>{tl("Basket")}</span>
           </div>
-         {/*  <Link href="/saved-store">
+          {/*  <Link href="/saved-store">
             <a className="square saved">
               <Bookmark3LineIcon size={20} />
             </a>
           </Link> */}
-         {/*  <div className="square notification-wrapper">
+          {/*  <div className="square notification-wrapper">
             <Notification4LineIcon size={20} />
             <div className="notification">
               <div className="header">
@@ -152,7 +156,6 @@ const Navbar = ({ handleContent }) => {
         {windowSize?.width < 769 && <MobileNav setOpen={setOpen} />}
       </CustomDrawer>
       <MenuList />
-      <BrandList />
     </>
   );
 };

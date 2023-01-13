@@ -1,19 +1,19 @@
 .swiperBrands {
   width: 100%;
+  margin: 16px 0 10px 0;
 
-.skeletonBrandList{
+  .skeletonBrandList {
     display: flex;
     align-items: center;
     flex-direction: column;
-    text-align: center;  
-    .skeletonBrand{
-        border-radius: 20%;
-        width: 80px;
-        height: 80px;
-        background: gray;
-
+    text-align: center;
+    .skeletonBrand {
+      border-radius: 20%;
+      width: 80px;
+      height: 80px;
+      background: gray;
     }
-}
+  }
 
   .swiper-button-prev {
     width: 40px;
@@ -21,8 +21,8 @@
     color: black;
     right: auto;
     left: -10px;
-    &:after{
-        font-size: 20px;
+    &:after {
+      font-size: 20px;
     }
   }
   .swiper-button-next {
@@ -32,8 +32,8 @@
     left: auto;
     right: -10px;
     font-size: 2px;
-    &:after{
-        font-size: 20px;
+    &:after {
+      font-size: 20px;
     }
   }
 }

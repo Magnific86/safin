@@ -16,12 +16,15 @@ import CategoryByChild from "../components/category/category-by-child";
 import CategoryByParent from "../components/category/category-by-parent";
 import BeSeller from "../components/banner/be-seller";
 import Blog from "../components/blog";
+import { BrandList } from "../components/navbar/BrandList";
 
 function Home() {
   const [discountList, setDiscountList] = useState(null);
   const [mostSales, setMostSales] = useState(null);
   const dispatch = useDispatch();
-  const bannerList = useSelector((state) => state.banners.data.data);
+  const data = useSelector((state) => state.banners.data.data);
+  const bannerList = data ?  [...data] : []
+  bannerList && bannerList?.length > 0 && bannerList?.shift()
   const getDiscountProduct = (perPage = 4, page = 1) => {
     ProductApi.getDiscount({ perPage, page })
       .then((response) => {
@@ -50,13 +53,15 @@ function Home() {
     getMostSales();
   }, []);
 
+
   return (
     <>
       <SEO />
-      {/* <HomeBanner bannerList={bannerList} />
+      <BrandList />
+      <HomeBanner bannerList={bannerList} />
       <CategoryByChild />
       <CategoryByParent />
-      <MegaSale /> */}
+      <MegaSale />
       <ProductSection icon={true} title="Super discounts of the week">
         {discountList ? (
           discountList.map((product, key) => (

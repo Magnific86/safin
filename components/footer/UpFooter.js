@@ -21,7 +21,7 @@ export const UpFooter = () => {
   return (
    <>
     <div className='mainUpFooter'>
-       <h1>Popular brands, stores and products</h1>
+      <div> <h1>Popular brands, stores and products</h1></div>
        <div className='upFooter'>
        <div className='upFooterItem'>
         {firstCol}

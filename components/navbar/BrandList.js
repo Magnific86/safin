@@ -14,7 +14,8 @@ export const BrandList = () => {
   const myDiv = (
     <div className="skeletonBrandList">
       <div className="skeletonBrand"></div>
-      <p>Brand</p>
+      <p>Brand Name Name Name
+      </p>
     </div>
   );
 
