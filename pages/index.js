@@ -18,6 +18,7 @@ import BeSeller from "../components/banner/be-seller";
 import Blog from "../components/blog";
 import { BrandList } from "../components/navbar/BrandList";
 
+
 function Home() {
   const [discountList, setDiscountList] = useState(null);
   const [mostSales, setMostSales] = useState(null);

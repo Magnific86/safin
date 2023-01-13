@@ -6,30 +6,30 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
+import "swiper/css/mousewheel";
 
 // import required modules
-import { FreeMode, Navigation } from "swiper";
+import { FreeMode, Navigation, Mousewheel } from "swiper";
 
 export const BrandList = () => {
   const myDiv = (
     <div className="skeletonBrandList">
       <div className="skeletonBrand"></div>
-      <p>Brand Name Name Name
-      </p>
+      <p>Brand Name</p>
     </div>
   );
 
   return (
     <>
       <Swiper
+        mousewheel={true}
         slidesPerView={10}
         spaceBetween={1}
         freeMode={false}
         navigation={true}
-        modules={[FreeMode, Navigation]}
+        modules={[Mousewheel, FreeMode, Navigation]}
         className="swiperBrands"
       >
-
         <SwiperSlide>{myDiv}</SwiperSlide>
         <SwiperSlide>{myDiv}</SwiperSlide>
         <SwiperSlide>{myDiv}</SwiperSlide>

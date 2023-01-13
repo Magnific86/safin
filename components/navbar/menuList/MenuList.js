@@ -6,7 +6,7 @@ import { ArrowRigthIcon, CheeseLineIcon } from "../../../constants/images";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
-import { FreeMode, Navigation } from "swiper";
+import { FreeMode, Navigation, Mousewheel } from "swiper";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { useInView } from "react-intersection-observer";
 
@@ -34,18 +34,18 @@ export const MenuList = () => {
     inView ? (prev.style = "opacity:0") : (prev.style = "opacity:1");
   }, [inView]);
 
-
-
   return (
     <div className="menuListWrapper">
       <div className="menuListContainer">
         <div className="categoriesList">
           <Swiper
+            mousewheel={true}
+            scrollbar={true}
             slidesPerView={12}
             spaceBetween={10}
             freeMode={true}
             navigation={true}
-            modules={[FreeMode, Navigation]}
+            modules={[Mousewheel, FreeMode, Navigation]}
             className="swiperCategoriesList"
           >
             {new Array(30).fill("Lorem").map((item, index) => (
@@ -85,6 +85,8 @@ export const MenuList = () => {
           </Link>
         </div>
       </div>
+      <div  onMouseOver={() => setDisplay("grid")}
+        onMouseLeave={() => setDisplay("none")} className="skeletonBetween"></div>
       <div
         onMouseOver={() => setDisplay("grid")}
         onMouseLeave={() => setDisplay("none")}

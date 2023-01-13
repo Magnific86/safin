@@ -7,6 +7,7 @@ import VerticalFilter from "../search-filter/vertical";
 import CustomDrawer from "../drawer";
 import { MainContext } from "../../utils/contexts/MainContext";
 import { useTranslation } from "react-i18next";
+import { Select } from "antd";
 
 const ProductSection = ({
   children,
@@ -56,7 +57,7 @@ const ProductSection = ({
                   <Filter3LineIcon size={16} />
                   <span>{tl("Filter")}</span>
                 </div>
-                <div className="layout-type">
+                {/* <div className="layout-type">
                   <span
                     onClick={() => setLayout("vertical")}
                     className={layout === "vertical" && "active"}
@@ -73,6 +74,37 @@ const ProductSection = ({
                   >
                     <PauseFillIcon />
                   </span>
+                </div> */}
+                <div className="all-products-sort">
+                  <Select
+                    defaultValue={"Sort by"}
+                    options={[
+                      {
+                        value: "described",
+                        label: "Described",
+                      },
+                      {
+                        value: "lowerPrice",
+                        label: "Lower price",
+                      },
+                      {
+                        value: "The highest price",
+                        label: "The highest price",
+                      },
+                      {
+                        value: "The newest",
+                        label: "The newest",
+                      },
+                      {
+                        value: "Most sold",
+                        label: "Most sold",
+                      },
+                      {
+                        value: "Highest rated",
+                        label: "Highest rated",
+                      },
+                    ]}
+                  />
                 </div>
               </div>
             </div>

@@ -104,7 +104,7 @@ const Navbar = ({ handleContent }) => {
               <Bookmark3LineIcon size={20} />
             </a>
           </Link> */}
-          {/*  <div className="square notification-wrapper">
+           {/* <div className="square notification-wrapper">
             <Notification4LineIcon size={20} />
             <div className="notification">
               <div className="header">

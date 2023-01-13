@@ -58,6 +58,7 @@ const Footer = () => {
     <>
       <div className="footer">
         <UpFooter />
+        <div className="allUnderFooter">
         <div className="upperFooter">
           {windowSize.width > 768 ? (
             <div className="footerCols">
@@ -175,6 +176,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+        </div>
     </>
   );
 };
