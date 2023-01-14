@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import FlashlightFillIcon from "remixicon-react/FlashlightFillIcon";
-import { ArrowRigthIcon, CheeseLineIcon } from "../../../constants/images";
+import { ArrowRigthIcon, CheeseLineIcon } from "../../constants/images";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -99,14 +99,3 @@ export const MenuList = () => {
   );
 };
 
-/* .eachList{
-            &:after{
-              content: "a";
-              position: absolute;
-              bottom: 0;
-              width: 100%;
-              height: 2px;
-              background: black;
-              display: block
-            }
-          } */

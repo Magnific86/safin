@@ -19,9 +19,7 @@ import { getPrice } from "../../utils/getPrice";
 import { parseCookies } from "nookies";
 import SerachFilter from "../search-filter";
 import { useRouter } from "next/router";
-import { MenuList } from "./menuList/MenuList";
-import { MenuHover } from "./menuList/menuHover";
-import { BrandList } from "./BrandList";
+import { MenuList } from "./MenuList";
 
 const Navbar = ({ handleContent }) => {
   const { t: tl } = useTranslation();
