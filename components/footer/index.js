@@ -8,7 +8,7 @@ import AccordionDetails from "../accordion/accordion-details";
 import AccordionSummary from "../accordion/accordion-summary";
 import CategoryLoader from "../loader/category";
 import { UpFooter } from "./UpFooter";
-import playMarketLogo from "../../public/assets/icons/playMarketLogo.png";
+import playMarketLogo from "../../public/assets/icons/playMarket.png";
 import appleLogo from "../../public/assets/icons/appleStoreLogo.png";
 import Image from "next/image";
 
