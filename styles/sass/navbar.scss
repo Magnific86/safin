@@ -1,14 +1,14 @@
 .navbar {
-  width: 100%;
+  max-width: 100%;
   height: 70px;
   border-radius: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+ /*  justify-content: space-between; */
 
   .left {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     gap: 4px;
     margin-right: 10px;
@@ -20,8 +20,14 @@
       line-height: 17px;
       color: var(--black);
       padding-right: 10px;
+      @media (max-width: 1200px) {
+        font-size: 30px;
+      }
       @media (max-width: 768px) {
         font-size: 20px;
+      }
+      @media (max-width: 576px) {
+        font-size: 15px;
       }
     }
 
@@ -30,7 +36,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
+      /* justify-content: center; */
       transition: all 300ms ease-out;
       &.search-visible {
         button {
@@ -234,6 +240,7 @@
           border: none;
           outline: none;
           font-weight: 500;
+          width: 100%;
           font-size: 15px;
           line-height: 16px;
           color: var(--black);
@@ -270,12 +277,16 @@
         margin-left: 10px;
         height: 50px;
         width: 255px;
-        @media (max-width: 1200px) {
+        @media(max-width: 1400px){
           width: 150px;
+        }
+        @media (max-width: 1200px) {
+          width: 120px;
         }
         @media (max-width: 768px) {
           width: 100px;
         }
+      
       }
 
       .filter-links {
@@ -283,26 +294,6 @@
         align-items: center;
         gap: 20px;
 
-        .label {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          font-weight: 500;
-          font-size: 16px;
-          letter-spacing: -0.01em;
-          color: var(--black);
-
-          @media (max-width: 768px) {
-            font-size: 13px;
-            line-height: 16px;
-            gap: 6px;
-
-            svg {
-              width: 24px;
-              height: 24px;
-            }
-          }
-        }
 
         .btn {
           width: 248px;
@@ -352,6 +343,7 @@
         height: max-content;
         gap: 0;
       }
+    
     }
 
     .burger-btn {
@@ -483,13 +475,13 @@
     border-radius: 8px;
     height: 54px;
     .left {
-      width: 50%;
+      width: 60%;
       .logo {
         font-size: 12px;
       }
     }
     .right {
-      width: 50%;
+      width: 40%;
     }
   }
 }
@@ -764,6 +756,33 @@
         height: 38px;
         border-radius: 8px;
       }
+    }
+  }
+}
+
+
+
+.labelSelectAddress {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: var(--black);
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    line-height: 16px;
+    gap: 6px;
+
+  /*   @media (min-width: 768px) and (max-width: 1220px) {
+      display: flex !important;
+  } */
+
+    svg {
+      width: 24px;
+      height: 24px;
     }
   }
 }

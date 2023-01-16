@@ -11,7 +11,7 @@ const saveUser = createSlice({
     savedUser(store, action) {
       store.data = action.payload;
     },
-    clearUser(store, action) {
+    clearUser(store) {
       store.data = {};
     },
   },

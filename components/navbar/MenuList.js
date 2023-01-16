@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import FlashlightFillIcon from "remixicon-react/FlashlightFillIcon";
 import { ArrowRigthIcon, CheeseLineIcon } from "../../constants/images";
@@ -9,6 +9,9 @@ import "swiper/css/navigation";
 import { FreeMode, Navigation, Mousewheel } from "swiper";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { useInView } from "react-intersection-observer";
+import { useRouter } from "next/router";
+import { MainContext } from "../../utils/contexts/MainContext";
+import { imgBaseUrl } from "../../constants";
 
 export const MenuList = () => {
   const { t: tl } = useTranslation();
@@ -27,8 +30,9 @@ export const MenuList = () => {
     </div>
   ));
 
-  const { ref, inView } = useInView();
+  
 
+  const { ref, inView } = useInView();
   useEffect(() => {
     const prev = document.getElementsByClassName("swiper-button-prev")[0];
     inView ? (prev.style = "opacity:0") : (prev.style = "opacity:1");

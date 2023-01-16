@@ -16,7 +16,7 @@ const viewedProductSlice = createSlice({
         state.viewedProductList.push({ ...action.payload });
       }
     },
-    clearViewedList(state, action) {
+    clearViewedList(state) {
       state.viewedProductList = [];
     },
     updateViwed(state, action) {

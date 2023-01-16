@@ -61,7 +61,7 @@ const SelectAddress = ({ setOpen = () => {} }) => {
       onClick={click}
     >
       <SendPlaneLineIcon size={20} className="send-plane" />
-      <div className="label">
+      <div className="labelSelectAddress">
         {cuurentAddress ? cuurentAddress.address : defaultAddress?.address}
       </div>
       <ArrowDownSLineIcon size={20} className="arrow-down" />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import HomeBanner from "../components/banner/home";
 import AppBanner from "../components/stores/app-banner";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +17,7 @@ import CategoryByParent from "../components/category/category-by-parent";
 import BeSeller from "../components/banner/be-seller";
 import Blog from "../components/blog";
 import { BrandList } from "../components/navbar/BrandList";
+import { Col, Row } from "antd";
 
 
 function Home() {
@@ -57,12 +58,23 @@ function Home() {
 
   return (
     <>
+    <div style={{width: 800, height: 400, background: 'gray', display: 'grid', gridTemplateColumns: 2, gridTemplateRows: 1}}>
+      <div style={{background: 'yellow', margin: 10}}></div>
+      <div style={{background: 'yellow', margin: 10}}></div>
+      <div style={{background: 'yellow', margin: 10}}></div>
+      <div style={{background: 'yellow', margin: 10}}></div>
+    </div>
       <SEO />
       <BrandList />
       <HomeBanner bannerList={bannerList} />
-      <CategoryByChild />
-      <CategoryByParent />
-      <MegaSale />
+      <Row id="row">
+        {new Array(3).fill("Store Name").map((el, index) =>
+              <StoreTemplate key={index} upperDesc="Lorem ipsum dolor sit amet" title={el} image="/assets/icons/example.jpg" />
+        )}
+      </Row>
+     {/*  <CategoryByChild />
+      <CategoryByParent /> */}
+    {/*   <MegaSale /> */}
       <ProductSection icon={true} title="Super discounts of the week">
         {discountList ? (
           discountList.map((product, key) => (
@@ -100,11 +112,37 @@ function Home() {
         )}
       </ProductSection>
       <BeSeller />
-      <ServiceBanner />
-      <Blog />
-      <AppBanner />
+      <Row id="row">
+        {new Array(18).fill("Store Name").map((el, index) =>
+              <StoreTemplate key={index} upperDesc="Lorem ipsum dolor sit amet" title={el} image="/assets/icons/example.jpg" />
+        )}
+      </Row>
+     {/*  <ServiceBanner /> */}
+      {/* <Blog />
+      <AppBanner /> */}
+      
     </>
   );
 }
 
 export default Home;
+
+
+export const StoreTemplate = ({title, upperDesc, image}) => {
+  return (
+    <Col xl={7} id = "col">
+    <div className="mainBlock">
+      <div className="leftPart">
+      <p className="leftPartDesc">{upperDesc}</p>
+      <img className="leftPartLogo" src={image}/>
+      </div>
+        <div className="rightPart">
+        <img src={image} className="rightPartImage" /> 
+        </div>
+    </div>
+    <div className="titleUnder">
+      <h1 style={{height: '20%'}}>{title}</h1>
+    </div>
+  </Col>
+  )
+}
