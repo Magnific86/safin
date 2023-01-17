@@ -24,6 +24,7 @@ const Seller = ({ bannerDetail }) => {
         console.error(error);
       });
   };
+  console.log(productList);
 
   useEffect(() => {
     getProduct();

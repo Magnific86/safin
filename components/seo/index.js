@@ -8,7 +8,7 @@ export default function SEO({ title, description, image, keywords }) {
   return (
     <Head>
       <title>
-        {title ? title : settings.title ? settings.title : "Site title"}
+        {title ? title : settings.title ? settings.title : "Safin24"}
       </title>
       <meta data-n-head="ssr" charSet="utf-8" />
       <meta

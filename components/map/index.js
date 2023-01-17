@@ -11,6 +11,7 @@ if (cookies?.settings) {
   config = JSON.parse(cookies?.settings);
 }
 const GoogleMap = (props) => {
+  console.log(props.address);
   const storeLocations = [];
   let center = {};
   const [selectedPlace, setSelectedPlace] = useState();

@@ -12,12 +12,14 @@ import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/router";
 import { MainContext } from "../../utils/contexts/MainContext";
 import { imgBaseUrl } from "../../constants";
+import useWindowSize from "../../utils/hooks/useWindowSize";
 
 export const MenuList = () => {
   const { t: tl } = useTranslation();
   const [changeScroll, ssetChangeScroll] = useState("none");
   const [display, setDisplay] = useState("none");
   const [num, setNum] = useState(0);
+  const windowSize = useWindowSize();
 
   const someArr = new Array(10)
     .fill("Lorem ipsum")
@@ -29,7 +31,6 @@ export const MenuList = () => {
       {el}
     </div>
   ));
-
   
 
   const { ref, inView } = useInView();
@@ -45,7 +46,7 @@ export const MenuList = () => {
           <Swiper
             mousewheel={true}
             scrollbar={true}
-            slidesPerView={12}
+            slidesPerView={windowSize.width > 1200 ?  12 : windowSize.width > 900 ? 8 : windowSize.width > 576 ? 6 : 4}
             spaceBetween={10}
             freeMode={true}
             navigation={true}
@@ -89,8 +90,11 @@ export const MenuList = () => {
           </Link>
         </div>
       </div>
-      <div  onMouseOver={() => setDisplay("grid")}
-        onMouseLeave={() => setDisplay("none")} className="skeletonBetween"></div>
+      <div
+        onMouseOver={() => setDisplay("grid")}
+        onMouseLeave={() => setDisplay("none")}
+        className="skeletonBetween"
+      ></div>
       <div
         onMouseOver={() => setDisplay("grid")}
         onMouseLeave={() => setDisplay("none")}
@@ -102,4 +106,3 @@ export const MenuList = () => {
     </div>
   );
 };
-

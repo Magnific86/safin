@@ -95,6 +95,7 @@ const Navbar = ({ handleContent }) => {
           )}
           <div className="cart-amount" onClick={() => click("order-list")}>
             <ShoppingCartLineIcon size={20} />
+            <span id="numofProducts">0+</span>
             <span>{tl("Basket")}</span>
           </div>
           {/*  <Link href="/saved-store">

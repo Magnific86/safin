@@ -24,9 +24,7 @@ function Home() {
   const [discountList, setDiscountList] = useState(null);
   const [mostSales, setMostSales] = useState(null);
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.banners.data.data);
-  const bannerList = data ?  [...data] : []
-  bannerList && bannerList?.length > 0 && bannerList?.shift()
+  const bannerList = useSelector((state) => state.banners.data.data);
   const getDiscountProduct = (perPage = 4, page = 1) => {
     ProductApi.getDiscount({ perPage, page })
       .then((response) => {
@@ -58,12 +56,6 @@ function Home() {
 
   return (
     <>
-    <div style={{width: 800, height: 400, background: 'gray', display: 'grid', gridTemplateColumns: 2, gridTemplateRows: 1}}>
-      <div style={{background: 'yellow', margin: 10}}></div>
-      <div style={{background: 'yellow', margin: 10}}></div>
-      <div style={{background: 'yellow', margin: 10}}></div>
-      <div style={{background: 'yellow', margin: 10}}></div>
-    </div>
       <SEO />
       <BrandList />
       <HomeBanner bannerList={bannerList} />

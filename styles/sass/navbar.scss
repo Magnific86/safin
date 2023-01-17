@@ -4,7 +4,7 @@
   border-radius: 10px;
   display: flex;
   align-items: center;
- /*  justify-content: space-between; */
+  /*  justify-content: space-between; */
 
   .left {
     display: flex;
@@ -277,7 +277,7 @@
         margin-left: 10px;
         height: 50px;
         width: 255px;
-        @media(max-width: 1400px){
+        @media (max-width: 1400px) {
           width: 150px;
         }
         @media (max-width: 1200px) {
@@ -286,14 +286,12 @@
         @media (max-width: 768px) {
           width: 100px;
         }
-      
       }
 
       .filter-links {
         display: flex;
         align-items: center;
         gap: 20px;
-
 
         .btn {
           width: 248px;
@@ -343,7 +341,6 @@
         height: max-content;
         gap: 0;
       }
-    
     }
 
     .burger-btn {
@@ -371,6 +368,8 @@
     justify-content: flex-end;
 
     .login-btn {
+      @media (max-width: 1400px) {
+      }
     }
 
     .wallet {
@@ -378,7 +377,6 @@
       align-items: center;
       border-radius: 10px;
       padding: 8px 20px;
-     /*  padding-right: 12px; */
       gap: 14px;
       color: var(--black);
 
@@ -397,9 +395,6 @@
       }
     }
 
-    .cart-amount {
-    }
-
     .square {
     }
 
@@ -413,15 +408,16 @@
       align-items: center;
       border-radius: 10px;
       gap: 10px;
-      padding: 0 ;
-      &:first-of-type{
+      padding: 0;
+
+      &:first-of-type {
         padding: 0 10px;
         gap: 20px;
       }
-      &:last-of-type{
+      &:last-of-type {
         padding-right: 0;
       }
-      
+
       @media (max-width: 1200px) {
         gap: 2px;
       }
@@ -468,6 +464,28 @@
           display: none;
         }
       }
+    }
+  }
+
+  .cart-amount {
+    position: relative;
+    #numofProducts {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 12px;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      top: -5px;
+      left: 30%;
+      color: white;
     }
   }
 
@@ -760,8 +778,6 @@
   }
 }
 
-
-
 .labelSelectAddress {
   display: flex !important;
   align-items: center;
@@ -776,7 +792,7 @@
     line-height: 16px;
     gap: 6px;
 
-  /*   @media (min-width: 768px) and (max-width: 1220px) {
+    /*   @media (min-width: 768px) and (max-width: 1220px) {
       display: flex !important;
   } */
 
